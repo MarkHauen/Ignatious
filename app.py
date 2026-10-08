@@ -5,9 +5,11 @@ from fastapi.responses import RedirectResponse, FileResponse
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from pydantic import BaseModel
+from pathlib import Path
 
 from database import get_db, Project, Task, TaskStatus, Epic, User, init_db
 
+STATIC_DIR = Path(__file__).resolve().parent / "static"
 app = FastAPI()
 
 @app.middleware("http")
@@ -18,7 +20,7 @@ async def no_cache_static(request: Request, call_next):
         response.headers["Cache-Control"] = "no-cache"
     return response
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 init_db()
 
 class EpicCreate(BaseModel):
@@ -62,7 +64,7 @@ def read_root():
 
 @app.get("/team")
 def team_page():
-    return FileResponse("static/team.html")
+    return FileResponse(STATIC_DIR / "team.html")
 
 @app.get("/api/statuses/")
 def get_statuses():
