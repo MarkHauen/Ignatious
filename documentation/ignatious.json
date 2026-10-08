@@ -1,0 +1,96 @@
+{
+  "mcp_ignatious_api": {
+    "name": "Ignatious Kanban API",
+    "description": "Tools to manage projects, tasks, and users in the Ignatious Kanban system.",
+    "tools": [
+      {
+        "name": "get_tasks",
+        "description": "Retrieve a list of tasks, optionally filtered by status.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["Ready for Action", "In Progress", "In Review", "Complete"],
+              "description": "Filter tasks by this specific status."
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "create_task",
+        "description": "Create a new task in the system.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "The title of the task."
+            },
+            "description": {
+              "type": "string",
+              "description": "Optional detailed description of the task."
+            },
+            "assignee": {
+              "type": "string",
+              "description": "Optional identifier for the user or agent assigned to the task."
+            },
+            "status": {
+              "type": "string",
+              "enum": ["Ready for Action", "In Progress", "In Review", "Complete"],
+              "description": "Initial status of the task. Defaults to Ready for Action."
+            },
+            "project_id": {
+              "type": "integer",
+              "description": "The ID of the project this task belongs to. Defaults to 1 if not provided."
+            }
+          },
+          "required": ["title"]
+        }
+      },
+      {
+        "name": "update_task_status",
+        "description": "Update the status of an existing task (e.g., move it between Kanban columns).",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "integer",
+              "description": "The ID of the task to update."
+            },
+            "status": {
+              "type": "string",
+              "enum": ["Ready for Action", "In Progress", "In Review", "Complete"],
+              "description": "The new status for the task."
+            }
+          },
+          "required": ["task_id", "status"]
+        }
+      },
+      {
+        "name": "get_users",
+        "description": "Retrieve a list of all registered users in the system.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      },
+      {
+        "name": "delete_task",
+        "description": "Permanently remove a task from the system.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "integer",
+              "description": "The ID of the task to delete."
+            }
+          },
+          "required": ["task_id"]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprint planning · Ignatious</title>
+<script src="/static/theme.js">
+</script>
+<link rel="stylesheet" href="/static/ui.css">
+<link rel="stylesheet" href="/static/planning.css">
+</head>
+<body class="planning-page">
+<div class="app-shell">
+<header class="topbar">
+<div class="brand">
+<a href="/static/index.html" class="brand-mark" aria-label="Ignatious home">IK</a>
+<div class="title-block">
+<div class="eyebrow">Ignatious</div>
+<h1 id="page-title">Sprint planning</h1>
+</div>
+</div>
+<div class="topbar-actions">
+<nav class="topbar-nav" aria-label="Main">
+<a class="nav-link " data-board-link href="/static/index.html">Board</a>
+<a class="nav-link active" data-plan-link href="/static/backlog.html">Planning</a>
+<a class="nav-link" href="/static/needed.html">Needed work</a>
+<a class="nav-link "  href="/team">Team</a>
+</nav>
+<button id="new-task" class="primary-button" disabled>Add task</button>
+</div>
+</header>
+<div id="notice" class="notice" role="status" hidden>
+</div>
+<section class="sprint-overview" aria-label="Current sprint">
+<div class="sprint-overview-controls">
+<div class="field">
+<label for="sprint-filter">Monthly sprint</label>
+<select id="sprint-filter" disabled>
+</select>
+</div>
+<div class="sprint-overview-actions">
+<button id="new-sprint" class="secondary-button" disabled>New sprint</button>
+<button id="edit-sprint" class="secondary-button" disabled>Edit sprint</button>
+</div>
+</div>
+<div class="board-summary">
+<span id="scope-summary">Loading tasks…</span>
+<p id="sprint-goal">
+</p>
+</div>
+</section>
+<section class="planning-filters" aria-label="Task filters">
+<div class="field">
+<label for="search">Find a task</label>
+<input id="search" type="search" placeholder="Search title, description, or assignee">
+</div>
+<div class="field">
+<label for="status-filter">Task status</label>
+<select id="status-filter">
+<option value="">All statuses</option>
+</select>
+</div>
+<div class="field">
+<label for="epic-filter">Epic</label>
+<select id="epic-filter">
+<option value="">All epics</option>
+</select>
+</div>
+</section>
+<section class="planning-selection" aria-label="Bulk task assignment">
+<div class="selection-summary">
+<label class="selected-label">
+<input type="checkbox" id="select-all">Select visible tasks</label>
+<span id="selection-count" role="status">0 selected</span>
+</div>
+<div class="field">
+<label for="assign-sprint">Move selected branches to</label>
+<select id="assign-sprint"></select>
+</div>
+<button id="assign" class="primary-button" disabled>Assign sprint</button>
+</section>
+<main class="planning-content">
+<aside class="epic-panel">
+<div class="panel-header">
+<h2>Epics</h2>
+<button id="new-epic" class="secondary-button" disabled>Add epic</button>
+</div>
+<div id="epic-list" class="epic-list">
+</div>
+</aside>
+<section>
+<div id="planning-list" class="planning-list">
+</div>
+</section>
+</main>
+</div>
+<script src="/static/shared.js">
+</script>
+<script src="/static/backlog.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8 />
+    <meta name=viewport content=width=device-width, initial-scale=1.0 />
+    <title>Ignatious Kanban - Team Management</title>
+    <script src="/static/theme.js"></script>
+    <link rel="stylesheet" href="/static/ui.css" />
+</head>
+<body>
+    <div class=app-shell>
+        <header class=topbar>
+            <div class=brand>
+                <div class=brand-mark>IK</div>
+                <div>
+                    <div class=eyebrow>Ignatious</div>
+                    <h1>Kanban Board</h1>
+                </div>
+            </div>
+            <div class=topbar-actions>
+                <nav class=topbar-nav>
+                    <a class=nav-link href=/static/index.html>Board</a>
+                    <a class=nav-link href=/static/backlog.html>Backlog</a>
+                    <a class=nav-link active href=/team>Team Management</a>
+                </nav>
+            </div>
+        </header>
+        <main class=team-page>
+            <h2>Team Management</h2>
+            <p class=subtitle>Manage who can be assigned to tasks, view their workload, and rename members.</p>
+
+            <section class=add-user-section>
+                <h3>Add a team member</h3>
+                <div class=add-user-form>
+                    <input type=text id=new-user-name placeholder=Enter name... />
+                    <button id=add-user-button class=primary-button>Add</button>
+                </div>
+                <p id=add-message class=message></p>
+            </section>
+
+            <section class=users-table-section>
+                <h3>Current team members</h3>
+                <table class=users-table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Backlog</th>
+                            <th>Ready</th>
+                            <th>In Progress</th>
+                            <th>In Review</th>
+                            <th>Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id=users-tbody>
+                        <tr><td colspan=7 class=loading>Loading...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit user modal -->
+    <div class=modal-overlay id=edit-modal-overlay>
+        <div class=modal>
+            <h3>Edit user</h3>
+            <div class=modal-body>
+                <label for=edit-user-name>New name</label>
+                <input type=text id=edit-user-name />
+            </div>
+            <div class=modal-footer>
+                <button class=secondary-button id=edit-cancel-button>Cancel</button>
+                <button class=primary-button id=edit-save-button>Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- User profile modal -->
+    <div class=modal-overlay id=profile-modal-overlay>
+        <div class=modal profile-modal>
+            <div class=modal-header>
+                <h3 id=profile-name></h3>
+                <button class=icon-button id=profile-close-button title="Close">×</button>
+            </div>
+            <div class=modal-body>
+                <div class=profile-stats>
+                    <div class=profile-stat>
+                        <span class=stat-value id=profile-backlog>0</span>
+                        <span class=stat-label>Backlog</span>
+                    </div>
+                    <div class=profile-stat>
+                        <span class=stat-value id=profile-ready>0</span>
+                        <span class=stat-label>Ready</span>
+                    </div>
+                    <div class=profile-stat>
+                        <span class=stat-value id=profile-progress>0</span>
+                        <span class=stat-label>In Progress</span>
+                    </div>
+                    <div class=profile-stat>
+                        <span class=stat-value id=profile-review>0</span>
+                        <span class=stat-label>In Review</span>
+                    </div>
+                    <div class=profile-stat>
+                        <span class=stat-value id=profile-total>0</span>
+                        <span class=stat-label>Total</span>
+                    </div>
+                </div>
+                <h4>Assigned Tasks</h4>
+                <div id=profile-tasks class=profile-task-list>
+                    <p class=empty-state>Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src=/static/team.js></script>
+</body>
+</html>

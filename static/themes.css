@@ -1,0 +1,82 @@
+:root {
+    color-scheme: light;
+    --bg: #f5f6f7;
+    --surface: #ffffff;
+    --surface-raised: #eef0f2;
+    --line: #d9dde2;
+    --line-bright: #aeb7c2;
+    --text: #20252b;
+    --muted: #59636f;
+    --accent: #2459ad;
+    --accent-soft: #e7eef9;
+    --accent-hover: #1c478c;
+    --on-accent: #ffffff;
+    --info: #146477;
+    --danger: #b42332;
+    --danger-soft: #fcebed;
+    --on-danger: #ffffff;
+    --success: #217047;
+    --success-soft: #e4f2e9;
+    --warning: #815b00;
+    --warning-soft: #fff2cc;
+    --backdrop: rgba(0, 0, 0, 0.6);
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --page-background: var(--bg);
+    --header-background: var(--surface);
+    --panel-background: var(--surface);
+    --card-background: var(--surface);
+    --font-ui: "Space Grotesk", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #151618;
+    --surface: #202225;
+    --surface-raised: #2b2e32;
+    --line: #3b3f45;
+    --line-bright: #626974;
+    --text: #f0f1f3;
+    --muted: #b1b7c0;
+    --accent: #9bbfff;
+    --accent-soft: #2b3b56;
+    --accent-hover: #bed5ff;
+    --on-accent: #172b4a;
+    --info: #8bd4df;
+    --danger: #ff9aa4;
+    --danger-soft: #42272d;
+    --on-danger: #38151a;
+    --success: #90d4ad;
+    --success-soft: #253c2f;
+    --warning: #e7c572;
+    --warning-soft: #3f3520;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="cyber-green"] {
+    color-scheme: dark;
+    --bg: #080b0d;
+    --surface: #101518;
+    --surface-raised: #161d21;
+    --line: #28343a;
+    --line-bright: #3d4d54;
+    --text: #e8eef0;
+    --muted: #91a0a6;
+    --accent: #48d597;
+    --accent-soft: rgba(72, 213, 151, 0.12);
+    --accent-hover: #6ae5ac;
+    --on-accent: #07110d;
+    --info: #6ccce2;
+    --danger: #ff7b72;
+    --danger-soft: #291818;
+    --on-danger: #291818;
+    --success: #48d597;
+    --success-soft: rgba(72, 213, 151, 0.12);
+    --warning: #e7c572;
+    --warning-soft: #3f3520;
+    --shadow: 0 18px 55px rgba(0, 0, 0, 0.14);
+    --page-background: linear-gradient(rgba(72, 213, 151, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 213, 151, 0.025) 1px, transparent 1px), var(--bg);
+    --header-background: rgba(8, 11, 13, 0.96);
+    --panel-background: rgba(16, 21, 24, 0.94);
+    --card-background: linear-gradient(180deg, rgba(16, 21, 24, 0.96), rgba(16, 21, 24, 0.88));
+}
